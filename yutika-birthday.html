@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#fdf6f0">
+<title>Happy Birthday Yutika 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --rose:       #f4a7b9;
+  --rose-deep:  #e07a96;
+  --blush:      #fde8ef;
+  --gold:       #d4a846;
+  --gold-light: #f5e8c0;
+  --cream:      #fdf6f0;
+  --warm-white: #fffaf8;
+  --text-dark:  #3a2a30;
+  --text-mid:   #7a5a65;
+  --text-light: #b08a96;
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+}
+
+/* ── PETALS ── */
+#petals { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.petal {
+  position: absolute; top: -30px; opacity: 0;
+  animation: fall linear infinite;
+  will-change: transform;
+}
+@keyframes fall {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+  8%   { opacity: 0.38; }
+  92%  { opacity: 0.15; }
+  100% { transform: translateY(112vh) rotate(400deg); opacity: 0; }
+}
+
+/* ══ HERO ══ */
+.hero {
+  position: relative; z-index: 1;
+  min-height: 100svh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: env(safe-area-inset-top, 4rem) 1.5rem 5rem;
+  padding-top: max(env(safe-area-inset-top), 4rem);
+  background:
+    radial-gradient(ellipse 110% 55% at 50% 0%,  #fce4ec 0%, transparent 66%),
+    radial-gradient(ellipse 80%  50% at 95% 100%, #fef3e2 0%, transparent 60%),
+    var(--cream);
+}
+
+.hero-badge {
+  display: inline-block;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold); background: var(--gold-light);
+  border: 1px solid #e8d08a;
+  border-radius: 50px; padding: 7px 20px;
+  margin-bottom: 1.8rem;
+  animation: fadeUp 0.7s ease both;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 16vw, 5.5rem);
+  font-weight: 700; line-height: 1.08;
+  color: var(--text-dark);
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.hero-title span { font-style: italic; color: var(--rose-deep); display: block; }
+
+.hero-sub {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(0.95rem, 4.8vw, 1.2rem);
+  color: var(--text-mid); margin-top: 1rem;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 1.8rem auto; width: fit-content;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.dl { width: 50px; height: 1px; background: linear-gradient(to right, transparent, var(--rose)); }
+.dr { width: 50px; height: 1px; background: linear-gradient(to left,  transparent, var(--rose)); }
+.dd { width: 7px; height: 7px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+.hero-msg {
+  max-width: 320px;
+  font-size: 0.97rem; line-height: 1.85;
+  color: var(--text-mid);
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+
+.cakes {
+  display: flex; gap: 0.75rem; margin-top: 2rem; font-size: 1.9rem;
+  animation: fadeUp 0.8s 0.5s ease both;
+}
+.cake { display: inline-block; animation: bounce 2.2s ease-in-out infinite; }
+.cake:nth-child(2) { animation-delay:.18s; }
+.cake:nth-child(3) { animation-delay:.36s; }
+.cake:nth-child(4) { animation-delay:.54s; }
+.cake:nth-child(5) { animation-delay:.72s; }
+
+.scroll-down {
+  position: absolute; bottom: 1.6rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-light); text-decoration: none;
+  animation: fadeUp 1s 1s ease both;
+  -webkit-tap-highlight-color: transparent;
+}
+.scroll-down svg { animation: arrowBounce 1.6s ease-in-out infinite; }
+
+@keyframes bounce      { 0%,100%{transform:translateY(0)}  50%{transform:translateY(-10px)} }
+@keyframes arrowBounce { 0%,100%{transform:translateY(0)}  50%{transform:translateY(5px)}  }
+@keyframes fadeUp      { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes popIn       { from{opacity:0;transform:scale(0.85) rotate(var(--r,0deg))} to{opacity:1;transform:scale(1) rotate(var(--r,0deg))} }
+
+/* ══ PHOTO STRIP — horizontal swipe, any aspect ratio ══
+   Each polaroid has a FIXED WIDTH. The image height is auto
+   so portrait/landscape/square all show fully, no cropping. */
+.photo-strip {
+  position: relative; z-index: 1;
+  background: var(--warm-white);
+  padding: 2.2rem 0 2.8rem;
+}
+.strip-label {
+  font-size: 10px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--rose-deep); text-align: center; margin-bottom: 1.2rem; display: block;
+}
+.strip-scroll {
+  display: flex; gap: 16px; align-items: flex-start;
+  overflow-x: auto; overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  padding: 18px 1.5rem 22px;
+  scrollbar-width: none;
+}
+.strip-scroll::-webkit-scrollbar { display: none; }
+
+/* ── POLAROID CARD ──
+   Width is fixed. img height is natural (not cropped).
+   This handles portrait, landscape, and square photos. */
+.photo-card {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  background: #fff;
+  /* padding: top sides bottom — bottom is bigger for the caption area */
+  padding: 8px 8px 28px;
+  box-shadow: 0 4px 20px rgba(58,42,48,0.13);
+  border-radius: 3px;
+  width: 145px;           /* fixed polaroid width */
+  transform: rotate(var(--r, 0deg));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: popIn 0.55s ease both;
+  animation-delay: var(--delay, 0s);
+  -webkit-tap-highlight-color: transparent;
+}
+.photo-card:active {
+  transform: rotate(0deg) scale(1.06) !important;
+  box-shadow: 0 10px 32px rgba(58,42,48,0.22);
+  z-index: 10;
+}
+/* img is full width, height is auto → shows full photo regardless of ratio */
+.photo-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  /* minimum height so broken images still show a slot */
+  min-height: 60px;
+  background: var(--blush);
+}
+.photo-caption {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 11px;
+  color: var(--text-mid); margin-top: 7px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ══ SCATTERED ROW — 2-col masonry-ish grid for between sections ══
+   Works well for mixed aspect ratios — images natural height, 2 columns */
+.photo-scatter {
+  position: relative; z-index: 1;
+  padding: 1.5rem 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  background: var(--cream);
+}
+.scatter-card {
+  background: #fff;
+  padding: 6px 6px 22px;
+  box-shadow: 0 4px 16px rgba(58,42,48,0.11);
+  border-radius: 3px;
+  transform: rotate(var(--r, 0deg));
+  animation: popIn 0.55s ease both;
+  animation-delay: var(--delay, 0s);
+  -webkit-tap-highlight-color: transparent;
+}
+.scatter-card:active {
+  transform: rotate(0deg) scale(1.04) !important;
+  z-index: 5;
+}
+.scatter-card img {
+  width: 100%; height: auto;
+  display: block; border-radius: 2px;
+  min-height: 50px; background: var(--blush);
+}
+.scatter-card .photo-caption { font-size: 10px; }
+
+/* ══ SINGLE FULL-WIDTH FEATURE PHOTO ══ */
+.feature-photo {
+  position: relative; z-index: 1;
+  background: #2a1e24;
+  padding: 1rem 1.5rem 1.6rem;
+}
+.feature-photo img {
+  width: 100%; height: auto;
+  display: block; border-radius: 14px;
+  min-height: 80px; background: #3a2a30;
+}
+.feature-photo .photo-caption {
+  margin-top: 10px; font-size: 12px; color: var(--text-light); text-align: center;
+  font-family: 'Playfair Display', serif; font-style: italic;
+}
+
+/* ══ MESSAGE SECTIONS ══ */
+.msg-section {
+  position: relative; z-index: 1;
+  padding: 3.8rem 1.5rem;
+}
+.msg-section.light { background: var(--cream); }
+.msg-section.white { background: var(--warm-white); }
+.msg-section.dark  { background: #3a2a30; }
+
+.msg-inner { max-width: 480px; margin: 0 auto; text-align: center; }
+
+.sec-label {
+  font-size: 10px; font-weight: 500; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--rose-deep);
+  margin-bottom: 8px; display: block;
+}
+.msg-section.dark .sec-label { color: var(--rose); }
+
+.sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.7rem, 7.5vw, 2.4rem);
+  font-weight: 700; line-height: 1.2; color: var(--text-dark);
+  margin-bottom: 1.3rem;
+}
+.sec-title em { font-style: italic; color: var(--rose-deep); }
+.msg-section.dark .sec-title { color: #fffaf8; }
+.msg-section.dark .sec-title em { color: var(--rose); }
+
+.msg-body { font-size: 0.98rem; line-height: 1.92; color: var(--text-mid); }
+.msg-section.dark .msg-body { color: #c9a8b5; }
+
+/* ══ QUALITIES GRID ══ */
+.qualities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px; margin-top: 1.8rem; text-align: left;
+}
+.q-card {
+  background: var(--blush);
+  border: 1px solid #f0c5d0;
+  border-radius: 16px; padding: 1.1rem 1rem;
+}
+.q-emoji { font-size: 1.5rem; margin-bottom: 6px; display: block; }
+.q-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-size: 0.95rem; color: var(--text-dark); margin-bottom: 4px;
+}
+.q-text { font-size: 0.82rem; line-height: 1.6; color: var(--text-mid); }
+
+/* ══ FOOTER ══ */
+footer {
+  position: relative; z-index: 1;
+  background: #1e1218;
+  text-align: center;
+  padding: 3rem 1.5rem calc(3rem + env(safe-area-inset-bottom));
+  color: var(--text-light); font-size: 0.9rem;
+}
+.footer-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 2rem;
+  color: var(--rose); display: block; margin-bottom: 8px;
+}
+.footer-msg { line-height: 1.7; max-width: 280px; margin: 0 auto; font-size: 0.88rem; }
+.footer-hearts { font-size: 1.3rem; margin-top: 14px; letter-spacing: 8px; }
+</style>
+</head>
+<body>
+
+<div id="petals"></div>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-badge">✦ A Special Celebration ✦</div>
+  <h1 class="hero-title">
+    Happy Birthday
+    <span>Yutika</span>
+  </h1>
+  <p class="hero-sub">Today is all about you — shine bright! 🌸</p>
+  <div class="divider"><div class="dl"></div><div class="dd"></div><div class="dr"></div></div>
+  <p class="hero-msg">
+    Another year of being the most radiant, kind-hearted, and wonderful person —
+    and we wouldn't have it any other way. Today we celebrate <em>you</em>.
+  </p>
+  <div class="cakes">
+    <span class="cake">🎂</span>
+    <span class="cake">🎀</span>
+    <span class="cake">🎊</span>
+    <span class="cake">🌸</span>
+    <span class="cake">🎁</span>
+  </div>
+  <a class="scroll-down" href="#letter">
+    scroll
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </a>
+</section>
+
+
+<!-- ══════════ PHOTO STRIP 1 (swipeable) ══════════ -->
+<!--
+  HOW TO ADD PHOTOS
+  Replace src="photo1.jpg" with your filename.
+  Put all photos in the same folder as this HTML file.
+  Photos can be portrait, landscape, or square — they all show fully.
+  You can also use a full path: src="photos/pic1.jpg"
+-->
+<div class="photo-strip">
+  <span class="strip-label">📸 memories</span>
+  <div class="strip-scroll">
+
+    <div class="photo-card" style="--r:-4deg; --delay:0.05s">
+      <img src="1.jpg" alt="Memory">
+      <div class="photo-caption">always smiling ✨</div>
+    </div>
+
+    <div class="photo-card" style="--r:3deg; --delay:0.12s">
+      <img src="2.jpg" alt="Memory">
+      <div class="photo-caption">golden moment 🌟</div>
+    </div>
+
+    <div class="photo-card" style="--r:-2deg; --delay:0.19s">
+      <img src="3.jpg" alt="Memory">
+      <div class="photo-caption">pure joy 🎉</div>
+    </div>
+
+    <div class="photo-card" style="--r:5deg; --delay:0.26s">
+      <img src="4.jpg" alt="Memory">
+      <div class="photo-caption">unforgettable 💕</div>
+    </div>
+
+    <div class="photo-card" style="--r:-3deg; --delay:0.33s">
+      <img src="5.jpg" alt="Memory">
+      <div class="photo-caption">our girl 🌸</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════ MESSAGE 1 — Personal letter ══════════ -->
+<section class="msg-section light" id="letter">
+  <div class="msg-inner">
+    <span class="sec-label">💌 A Letter For You</span>
+    <h2 class="sec-title">Dear <em>Yutika</em>,</h2>
+    <p class="msg-body">
+      Where do we even begin? You walk into a room and the whole energy shifts —
+      brighter, warmer, better. You have this rare gift of making everyone around you
+      feel seen, loved, and at ease, and you do it so effortlessly, so naturally,
+      as if it's just who you are. Because it is exactly who you are.
+      <br><br>
+      You have worked hard, laughed hard, and loved hard. You have faced days that
+      weren't easy with grace that most people only wish they had. And through all of
+      it, you stayed <em>you</em> — curious, caring, and wonderfully, beautifully yourself.
+      <br><br>
+      On this birthday, we want you to know: you are beyond appreciated. You are cherished.
+      And we are so incredibly lucky that you exist in our world. 🌸
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════ SCATTERED GRID 1 (2 cols, natural heights) ══════════ -->
+<div class="photo-scatter">
+  <div class="scatter-card" style="--r:-3deg; --delay:0.05s">
+    <img src="6.jpg" alt="Memory">
+    <div class="photo-caption">the best days 🌼</div>
+  </div>
+  <div class="scatter-card" style="--r:4deg; --delay:0.12s">
+    <img src="7.jpg" alt="Memory">
+    <div class="photo-caption">love this girl 💖</div>
+  </div>
+  <div class="scatter-card" style="--r:2deg; --delay:0.19s">
+    <img src="8.jpg" alt="Memory">
+    <div class="photo-caption">birthday queen 👑</div>
+  </div>
+  <div class="scatter-card" style="--r:-4deg; --delay:0.26s">
+    <img src="9.jpg" alt="Memory">
+    <div class="photo-caption">forever us 🌷</div>
+  </div>
+</div>
+
+
+<!-- ══════════ MESSAGE 2 — Qualities ══════════ -->
+<section class="msg-section white">
+  <div class="msg-inner">
+    <span class="sec-label">🌟 What Makes You, You</span>
+    <h2 class="sec-title">Things we <em>adore</em> about you</h2>
+    <div class="qualities-grid">
+      <div class="q-card">
+        <span class="q-emoji">💛</span>
+        <div class="q-title">Your Warmth</div>
+        <div class="q-text">You make strangers feel like old friends. Your kindness is simply who you are, every single day.</div>
+      </div>
+      <div class="q-card">
+        <span class="q-emoji">✨</span>
+        <div class="q-title">Your Energy</div>
+        <div class="q-text">You bring light into every room. Life with you is more fun, more vibrant, more alive.</div>
+      </div>
+      <div class="q-card">
+        <span class="q-emoji">🌸</span>
+        <div class="q-title">Your Strength</div>
+        <div class="q-text">You handle hard things quietly and keep going with a smile. That resilience is beautiful.</div>
+      </div>
+      <div class="q-card">
+        <span class="q-emoji">🎀</span>
+        <div class="q-title">Your Laugh</div>
+        <div class="q-text">Your laugh is contagious. Once you start, no one can keep a straight face.</div>
+      </div>
+      <div class="q-card">
+        <span class="q-emoji">🌟</span>
+        <div class="q-title">Your Ambition</div>
+        <div class="q-text">You dream big and then steadily work toward those dreams. Watching you grow is a joy.</div>
+      </div>
+      <div class="q-card">
+        <span class="q-emoji">🦋</span>
+        <div class="q-title">Your Uniqueness</div>
+        <div class="q-text">There is truly no one else like you. You are original, real, and wonderfully yourself.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ FEATURE PHOTO (full width, any ratio) ══════════ -->
+<div class="feature-photo">
+  <img src="10.jpg" alt="A favourite memory">
+  <p class="photo-caption">moments frozen in time, love that never fades 🌸</p>
+</div>
+
+
+<!-- ══════════ MESSAGE 3 — Dark heartfelt ══════════ -->
+<section class="msg-section dark">
+  <div class="msg-inner">
+    <span class="sec-label">🌙 From the heart</span>
+    <h2 class="sec-title">Here's to <em>you</em>, Yutika</h2>
+    <p class="msg-body">
+      May this year bring you everything your beautiful heart desires —
+      adventures that take your breath away, laughs that make your stomach hurt,
+      and quiet moments that fill you with peace.
+      <br><br>
+      May you always know how loved you are. May doors open at exactly the right time.
+      May you be proud of the person you're becoming, because we already are —
+      endlessly, completely, without a single doubt.
+      <br><br>
+      Happy Birthday, Yutika. Here's to <em>you</em> — today, tomorrow, and always. 🥂🌸
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════ PHOTO STRIP 2 (swipeable) ══════════ -->
+<div class="photo-strip" style="background: var(--cream);">
+  <span class="strip-label">🌸 more moments</span>
+  <div class="strip-scroll">
+
+    <div class="photo-card" style="--r:3deg; --delay:0.05s">
+      <img src="11.jpg" alt="Memory">
+      <div class="photo-caption">forever cherished 🌷</div>
+    </div>
+
+    <div class="photo-card" style="--r:-4deg; --delay:0.12s">
+      <img src="12.jpg" alt="Memory">
+      <div class="photo-caption">gorgeous always 💫</div>
+    </div>
+
+    <div class="photo-card" style="--r:2deg; --delay:0.19s">
+      <img src="13.jpg" alt="Memory">
+      <div class="photo-caption">happy birthday! 🎂</div>
+    </div>
+
+    <div class="photo-card" style="--r:-3deg; --delay:0.26s">
+      <img src="14.jpg" alt="Memory">
+      <div class="photo-caption">our sunshine ☀️</div>
+    </div>
+
+    <div class="photo-card" style="--r:4deg; --delay:0.33s">
+      <img src="15.jpg" alt="Memory">
+      <div class="photo-caption">best memories 🎀</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════ MESSAGE 4 — Wishes ══════════ -->
+<section class="msg-section light">
+  <div class="msg-inner">
+    <span class="sec-label">🎁 Birthday Wishes</span>
+    <h2 class="sec-title">Everything we wish <em>for you</em></h2>
+    <p class="msg-body">
+      We wish you mornings that start gently and evenings that end with a full heart.
+      We wish you friendships that feel like home, and love that feels like sunshine.
+      We wish you confidence on the hard days, and pure happiness on the easy ones.
+      <br><br>
+      We wish you all the cake 🎂, all the flowers 🌸, and every beautiful thing
+      this world has to offer. But most of all, we wish you a deep, unshakeable sense
+      of how truly special you are — because Yutika, you deserve every bit of it
+      and so much more.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════ SCATTERED GRID 2 ══════════ -->
+<div class="photo-scatter" style="background: var(--warm-white);">
+  <div class="scatter-card" style="--r:3deg; --delay:0.05s">
+    <img src="16.jpg" alt="Memory">
+    <div class="photo-caption">always you 🌸</div>
+  </div>
+  <div class="scatter-card" style="--r:-2deg; --delay:0.12s">
+    <img src="17.jpg" alt="Memory">
+    <div class="photo-caption">love always 💕</div>
+  </div>
+</div>
+
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <span class="footer-name">Yutika</span>
+  <p class="footer-msg">Made with love, laughter, and every good memory we share. Here's to many, many more. ✨</p>
+  <div class="footer-hearts">🌸 💖 🌸</div>
+</footer>
+
+
+<script>
+/* ── PETALS (lighter count for mobile perf) ── */
+const petalColors = ['#f4a7b9','#fde8ef','#f5e8c0','#fdd3e4','#fce4ec'];
+const pc = document.getElementById('petals');
+for (let i = 0; i < 18; i++) {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  const s = 7 + Math.random() * 8;
+  p.style.cssText = `
+    left:${Math.random()*100}vw;
+    width:${s}px; height:${s*1.6}px;
+    background:${petalColors[i % petalColors.length]};
+    animation-duration:${8+Math.random()*9}s;
+    animation-delay:${Math.random()*14}s;
+    border-radius:${Math.random()>.5?'50% 0 50% 0':'0 50% 0 50%'};
+  `;
+  pc.appendChild(p);
+}
+
+/* ── SCROLL REVEAL ── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.msg-inner, .q-card, .feature-photo img').forEach(el => {
+  el.style.opacity   = '0';
+  el.style.transform = 'translateY(28px)';
+  el.style.transition = 'opacity 0.65s ease, transform 0.65s ease';
+  io.observe(el);
+});
+
+/* ── SUBTLE RANDOM TILT VARIATION on scatter cards ── */
+document.querySelectorAll('.scatter-card').forEach(card => {
+  const base = parseFloat(getComputedStyle(card).getPropertyValue('--r')) || 0;
+  const extra = (Math.random() * 2 - 1).toFixed(1);
+  card.style.setProperty('--r', (base + parseFloat(extra)) + 'deg');
+});
+</script>
+</body>
+</html>
